@@ -6,9 +6,9 @@
  */
 namespace App;
 
-/**
- * Class Equilibrium.
- */
+    /**
+     * Class Equilibrium.
+     */
 /**
  * Class Equilibrium.
  */
@@ -32,11 +32,11 @@ class Equilibrium
     /**
      * @return int|mixed
      */
-    public function getRandomIndex()
+    public function getRandomEquilibriumIndex()
     {
         $indices = $this->getIndices();
 
-        return empty($indices) ? $this->noIndices() : array_rand($indices);
+        return empty($indices) ? $this->noIndices() : $indices[ array_rand($indices) ];
     }
 
     /**
@@ -69,27 +69,5 @@ class Equilibrium
     private function noIndices()
     {
         return -1;
-    }
-
-    /**
-     * @param $equilibriumIndex
-     * @return bool
-     */
-    public function isEquilibriumIndex($equilibriumIndex)
-    {
-        $lowerIndices = 0;
-
-        for ($index = 0; $index < $equilibriumIndex; ++$index) {
-            $lowerIndices = $lowerIndices + $this->data[ $index ];
-        }
-
-        $higherIndices = 0;
-        $dataSize = count($this->data);
-
-        for ($index = $equilibriumIndex + 1; $index < $dataSize; ++$index) {
-            $higherIndices = $higherIndices + $this->data[ $index ];
-        }
-
-        return $lowerIndices === $higherIndices;
     }
 }

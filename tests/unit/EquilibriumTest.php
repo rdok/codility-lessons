@@ -2,6 +2,9 @@
 
 use App\Equilibrium;
 
+/**
+ * Class EquilibriumTest.
+ */
 class EquilibriumTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -27,29 +30,12 @@ class EquilibriumTest extends \PHPUnit_Framework_TestCase
     {
         $equilibrium = new Equilibrium($data);
 
-        $this->assertTrue(array_key_exists($equilibrium->getRandomIndex(), $indices));
+        $this->assertTrue(in_array($equilibrium->getRandomEquilibriumIndex(), $indices));
     }
 
     /**
-     * @dataProvider provider
-     * @test
-     * @param array $data
-     * @param array $indices
+     * @return array
      */
-    public function it_checks_if_an_element_is_equilibrium(array $data, array $indices)
-    {
-        $equilibrium = new Equilibrium($data);
-
-        $this->assertFalse($equilibrium->isEquilibriumIndex(0));
-        $this->assertTrue($equilibrium->isEquilibriumIndex(1));
-        $this->assertFalse($equilibrium->isEquilibriumIndex(2));
-        $this->assertTrue($equilibrium->isEquilibriumIndex(3));
-        $this->assertFalse($equilibrium->isEquilibriumIndex(4));
-        $this->assertFalse($equilibrium->isEquilibriumIndex(5));
-        $this->assertFalse($equilibrium->isEquilibriumIndex(6));
-        $this->assertTrue($equilibrium->isEquilibriumIndex(7));
-    }
-
     public function provider()
     {
         return [
