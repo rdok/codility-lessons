@@ -10,11 +10,24 @@ class EquilibriumTest extends \PHPUnit_Framework_TestCase
      * @param array $data
      * @param array $indices
      */
-    public function it_returns_index(array $data, array $indices)
+    public function it_returns_indices(array $data, array $indices)
     {
         $equilibrium = new Equilibrium($data);
 
-        $this->assertSame($indices, $equilibrium->getIndices($data));
+        $this->assertSame($indices, $equilibrium->getIndices());
+    }
+
+    /**
+     * @dataProvider provider
+     * @test
+     * @param array $data
+     * @param array $indices
+     */
+    public function it_returns_random_index(array $data, array $indices)
+    {
+        $equilibrium = new Equilibrium($data);
+
+        $this->assertTrue(array_key_exists($equilibrium->getRandomIndex(), $indices));
     }
 
     /**
@@ -27,9 +40,14 @@ class EquilibriumTest extends \PHPUnit_Framework_TestCase
     {
         $equilibrium = new Equilibrium($data);
 
-        $this->assertTrue($equilibrium->isEquilibriumIndexOfLeftPart(1));
-//        $this->assertTrue($equilibrium->isEquilibriumIndex(3));
-//        $this->assertTrue($equilibrium->isEquilibriumIndex(7));
+        $this->assertFalse($equilibrium->isEquilibriumIndex(0));
+        $this->assertTrue($equilibrium->isEquilibriumIndex(1));
+        $this->assertFalse($equilibrium->isEquilibriumIndex(2));
+        $this->assertTrue($equilibrium->isEquilibriumIndex(3));
+        $this->assertFalse($equilibrium->isEquilibriumIndex(4));
+        $this->assertFalse($equilibrium->isEquilibriumIndex(5));
+        $this->assertFalse($equilibrium->isEquilibriumIndex(6));
+        $this->assertTrue($equilibrium->isEquilibriumIndex(7));
     }
 
     public function provider()

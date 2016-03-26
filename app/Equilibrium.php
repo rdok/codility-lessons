@@ -9,6 +9,9 @@ namespace App;
 /**
  * Class Equilibrium.
  */
+/**
+ * Class Equilibrium.
+ */
 class Equilibrium
 {
     /**
@@ -27,28 +30,52 @@ class Equilibrium
     }
 
     /**
+     * @return int|mixed
+     */
+    public function getRandomIndex()
+    {
+        $indices = $this->getIndices();
+
+        return empty($indices) ? $this->noIndices() : array_rand($indices);
+    }
+
+    /**
      * @return array|int
      */
     public function getIndices()
     {
         $indices = [];
-
-        $dataSize = count($this->data);
+        $data = $this->data;
+        $dataSize = count($data);
+        $totalSum = array_sum($this->data);
+        $leftSize = 0;
 
         for ($index = 0; $index < $dataSize; ++$index) {
-            if ($this->isEquilibriumIndexOfLeftPart($index, $this->data[ $index ])) {
-                $indices[] = $this->data[ $index ];
+            $totalSum = $totalSum - $data[ $index ];
+
+            if ($leftSize === $totalSum) {
+                $indices[] = $index;
             }
+
+            $leftSize = $leftSize + $data[ $index ];
         }
 
-        return 0 === count($indices) ? $this->noIndices() : $indices;
+        return $indices;
+    }
+
+    /**
+     * @return int
+     */
+    private function noIndices()
+    {
+        return -1;
     }
 
     /**
      * @param $equilibriumIndex
      * @return bool
      */
-    public function isEquilibriumIndexOfLeftPart($equilibriumIndex)
+    public function isEquilibriumIndex($equilibriumIndex)
     {
         $lowerIndices = 0;
 
@@ -64,13 +91,5 @@ class Equilibrium
         }
 
         return $lowerIndices === $higherIndices;
-    }
-
-    /**
-     * @return int
-     */
-    private function noIndices()
-    {
-        return -1;
     }
 }
