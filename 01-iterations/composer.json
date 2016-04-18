@@ -1,0 +1,14 @@
+{
+    "name": "rdok/codility-lessons-01-iterations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rizart Dokollari",
+            "email": "r.dokollari@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "codeception/codeception": "^2.1"
+    }
+}
