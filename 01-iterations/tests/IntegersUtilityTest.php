@@ -12,6 +12,8 @@ class IntegersUtilityTest extends PHPUnit_Framework_TestCase
     {
         $integersUtility = new IntegersUtility();
 
-        $this->assertSame(5, $integersUtility->getLongestZeroSequence(decbin(1041)));
+        $this->assertSame(5, $integersUtility->getLongestBinaryGap(1041));
+
+//        $this->assertSame(5, $integersUtility->getLongestZeroSequence(decbin(1041)));
     }
 }
