@@ -16,6 +16,19 @@ class CyclicRotator implements Rotator
      */
     public function rotate(array $data)
     {
-        
+        $rotateArray = [];
+        $dataSize = sizeof($data);
+
+        for ($index = 0; $index < $dataSize; $index++) {
+            if ($index === $dataSize - 1) {
+                $rotateArray[0] = $data[$index];
+
+                continue;
+            }
+
+            $rotateArray[$index + 1] = $data[$index];
+        }
+
+        return $rotateArray;
     }
 }
