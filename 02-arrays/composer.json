@@ -1,0 +1,17 @@
+{
+  "name": "rdok/codility-lessons-02-arrays",
+  "authors": [
+    {
+      "name": "Rizart Dokollari",
+      "email": "r.dokollari@gmail.com"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "^5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}
