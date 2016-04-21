@@ -15,4 +15,12 @@ interface Rotator
      * @return mixed
      */
     public function rotate(array $data);
+
+    /**
+     * Rotate an array multiple times.
+     * @param $array
+     * @param $times
+     * @return mixed
+     */
+    public function rotateMultipleTimes($array, $times);
 }

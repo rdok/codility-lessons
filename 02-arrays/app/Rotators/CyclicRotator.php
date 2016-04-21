@@ -31,4 +31,13 @@ class CyclicRotator implements Rotator
 
         return $rotateArray;
     }
+
+    public function rotateMultipleTimes($array, $times)
+    {
+        for ($index = 0; $index < $times; $index++) {
+          $array = $this->rotate($array);
+        }
+
+        return $array;
+    }
 }
