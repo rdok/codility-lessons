@@ -1,4 +1,4 @@
-<?php
+<?php namespace App\OccurrencesInArray;
 
 /**
  * @author Rizart Dokollar <r.dokollari@gmail.com
@@ -7,8 +7,8 @@
 interface OccurrenceInArray
 {
     /**
-     * @param $data
+     * @param $elements
      * @return mixed
      */
-    public function findUnPairedElement($data);
+    public function findUnPairedElement($elements);
 }

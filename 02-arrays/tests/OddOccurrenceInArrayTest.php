@@ -1,4 +1,5 @@
 <?php
+use App\OccurrencesInArray\OddOccurrenceInArray;
 
 /**
  * @author Rizart Dokollar <r.dokollari@gmail.com
@@ -12,7 +13,7 @@ class OddOccurrencesInArrayTest extends PHPUnit_Framework_TestCase
         $data = [9, 3, 9, 3, 9, 7, 9];
         $expectedOutput = 7;
         $oddOccurrenceInArray = new OddOccurrenceInArray();
-        
-        $this->assertSame(7, $oddOccurrenceInArray->findUnPairedElement($data));
+
+        $this->assertSame($expectedOutput, $oddOccurrenceInArray->findUnPairedElement($data));
     }
 }
